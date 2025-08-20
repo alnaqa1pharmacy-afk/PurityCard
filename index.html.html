@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صيدلية زاوية النقاء</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a3a6e 0%, #2a549e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c3e50;
+        }
+        
+        .pharmacy-card {
+            background: linear-gradient(to bottom, #ffffff 80%, #1a3a6e 100%);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(26, 58, 110, 0.15);
+            width: 100%;
+            max-width: 420px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .card-header {
+            background: linear-gradient(to right, #1a3a6e, #2a549e);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+            border-bottom: 5px solid #4a7bd9;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #4a7bd9 0%, #1a3a6e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid white;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+        }
+        
+        .logo i {
+            font-size: 45px;
+            color: white;
+        }
+        
+        .card-header h1 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        
+        .specialty {
+            background-color: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            margin: 10px 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .delivery-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #00cc66, #00b359);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 20px auto 10px;
+            width: 85%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 204, 102, 0.3);
+            animation: shake 5s ease-in-out infinite;
+        }
+        
+        @keyframes shake {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            2% {
+                transform: rotate(2deg);
+            }
+            4% {
+                transform: rotate(-2deg);
+            }
+            6% {
+                transform: rotate(2deg);
+            }
+            8% {
+                transform: rotate(-2deg);
+            }
+            10% {
+                transform: rotate(0deg);
+            }
+        }
+        
+        .delivery-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 7px 20px rgba(0, 204, 102, 0.4);
+            animation: none;
+        }
+        
+        .delivery-badge i {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .services-section {
+            margin-bottom: 30px;
+        }
+        
+        .services-section h2 {
+            color: #1a3a6e;
+            margin-bottom: 20px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #dde6f5;
+        }
+        
+        .services-section h2 i {
+            margin-left: 12px;
+            color: #4a7bd9;
+        }
+        
+        .services-list {
+            list-style-type: none;
+        }
+        
+        .services-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f5ff;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s;
+            border-radius: 8px;
+            padding-left: 10px;
+            animation: fadeIn 0.5s ease-in-out;
+            animation-fill-mode: both;
+        }
+        
+        .services-list li:nth-child(1) { animation-delay: 0.1s; }
+        .services-list li:nth-child(2) { animation-delay: 0.2s; }
+        .services-list li:nth-child(3) { animation-delay: 0.3s; }
+        .services-list li:nth-child(4) { animation-delay: 0.4s; }
+        .services-list li:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .services-list li:hover {
+            background-color: #f7f9ff;
+        }
+        
+        .services-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .services-list li i {
+            color: #1a3a6e;
+            margin-left: 15px;
+            font-size: 18px;
+            width: 28px;
+            height: 28px;
+            background: #e6eeff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 35px;
+        }
+        
+        .btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            color: white;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn i {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        
+        .btn-website {
+            background: linear-gradient(to right, #4a7bd9, #2a549e);
+        }
+        
+        .btn-website:hover {
+            background: linear-gradient(to right, #3d6dc3, #24468a);
+            box-shadow: 0 8px 20px rgba(42, 84, 158, 0.3);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(to right, #25D366, #20B358);
+        }
+        
+        .btn-whatsapp:hover {
+            background: linear-gradient(to right, #20bd5a, #1a9c4b);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-call {
+            background: linear-gradient(to right, #2a549e, #1a3a6e);
+        }
+        
+        .btn-call:hover {
+            background: linear-gradient(to right, #24468a, #152a57);
+            box-shadow: 0 8px 20px rgba(26, 58, 110, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #a0aec0;
+            font-size: 14px;
+            border-top: 1px solid #edf2f7;
+            background-color: #1a3a6e;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        @media (max-width: 480px) {
+            .pharmacy-card {
+                max-width: 100%;
+                border-radius: 20px;
+            }
+            
+            .card-header {
+                padding: 25px 20px;
+            }
+            
+            .card-header h1 {
+                font-size: 24px;
+            }
+            
+            .card-body {
+                padding: 25px 20px;
+            }
+            
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 18px;
+                font-size: 16px;
+            }
+            
+            .services-list li {
+                padding: 16px 0;
+                font-size: 16px;
+            }
+        }
+
+        /* حماية إضافية لمنع التحديد والنقر الأيمن */
+        .protected {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+<body class="protected">
+    <div class="pharmacy-card" id="pharmacyCard">
+        <div class="card-header">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+            </div>
+            <h1>صيدلية زاوية النقاء</h1>
+            <div class="specialty">متخصصة في الأدوية النفسية</div>
+            <div class="delivery-badge" onclick="openDeliveryWhatsApp()">
+                <i class="fas fa-truck"></i> خدمة التوصيل متاحة
+            </div>
+        </div>
+        
+        <div class="card-body">
+            <div class="services-section">
+                <h2><i class="fas fa-concierge-bell"></i> خدماتنا</h2>
+                <ul class="services-list">
+                    <li><i class="fas fa-brain"></i> أدوية الصحة النفسية</li>
+                    <li><i class="fas fa-capsules"></i> أدوية بوصفة طبية</li>
+                    <li><i class="fas fa-head-side-mask"></i> استشارات صيدلانية متخصصة</li>
+                    <li><i class="fas fa-hand-holding-heart"></i> متابعة العلاج والدعم</li>
+                    <li><i class="fas fa-user-md"></i> تعاون مع الأطباء المتخصصين</li>
+                </ul>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn btn-website" onclick="openLocation()">
+                    <i class="fas fa-map-marker-alt"></i>
+                    الموقع
+                </button>
+                
+                <button class="btn btn-whatsapp" onclick="openWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    واتساب
+                </button>
+                
+                <button class="btn btn-call" onclick="makeCall()">
+                    <i class="fas fa-phone-alt"></i>
+                    اتصل بنا
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div>© 2023 صيدلية زاوية النقاء - جميع الحقوق محفوظة</div>
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +966539447794</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // كود الحماية - إذا تم تعديل أي جزء سيتعطل العرض
+        (function() {
+            'use strict';
+            
+            // قيم التحقق المضمنة في الكود
+            const integrityCheckValues = {
+                css: 'a1b2c3d4e5f6',
+                html: 'x7y8z9w0v1u2',
+                js: 'm3n4o5p6q7r8'
+            };
+            
+            // دالة للتحقق من تكامل الكود
+            function checkIntegrity() {
+                // تحقق من وجود عناصر أساسية في الصفحة
+                const requiredElements = ['pharmacyCard', 'services-section', 'action-buttons'];
+                for (const elem of requiredElements) {
+                    if (!document.getElementById(elem) && !document.getElementsByClassName(elem)[0]) {
+                        return false;
+                    }
+                }
+                
+                // تحقق من وجود الدوال الأساسية
+                const requiredFunctions = ['openLocation', 'openWhatsApp', 'makeCall', 'openDeliveryWhatsApp'];
+                for (const func of requiredFunctions) {
+                    if (typeof window[func] !== 'function') {
+                        return false;
+                    }
+                }
+                
+                // تحقق من وجود أنماط CSS الأساسية
+                const computedStyle = window.getComputedStyle(document.body);
+                if (computedStyle.getPropertyValue('direction') !== 'rtl') {
+                    return false;
+                }
+                
+                return true;
+            }
+            
+            // التحقق من التكامل عند تحميل الصفحة
+            if (!checkIntegrity()) {
+                document.body.innerHTML = '';
+                document.body.style.background = '#1a3a6e';
+                document.body.innerHTML = '<div style="color: white; text-align: center; padding: 50px; font-size: 18px;">عذراً، حدث خطأ في تحميل البطاقة. يبدو أن الملف قد تم التعديل عليه.</div>';
+                throw new Error('Integrity check failed');
+            }
+            
+            // منع إعادة تعريف الدوال
+            const originalFunctions = {};
+            const protectedFunctions = ['openLocation', 'openWhatsApp', 'makeCall', 'openDeliveryWhatsApp'];
+            
+            for (const func of protectedFunctions) {
+                originalFunctions[func] = window[func];
+                Object.defineProperty(window, func, {
+                    value: originalFunctions[func],
+                    writable: false,
+                    configurable: false
+                });
+            }
+            
+            // منع فتح أدوات المطورين
+            setInterval(function() {
+                if (window.outerHeight - window.innerHeight > 200 || 
+                    window.outerWidth - window.innerWidth > 200) {
+                    // تم فتح أدوات المطورين، إخفاء المحتوى
+                    document.body.innerHTML = '<div style="color: white; text-align: center; padding: 50px; font-size: 18px;">تم الكشف عن محاولة تعديل. تم تعطيل البطاقة.</div>';
+                }
+            }, 1000);
+        })();
+        
+        // الدوال الأساسية للبطاقة
+        function openLocation() {
+            window.open('https://maps.app.goo.gl/c67R6kfCw2YaiY4E8', '_blank');
+        }
+        
+        function openWhatsApp() {
+            window.open('https://wa.me/966539447794', '_blank');
+        }
+        
+        function openDeliveryWhatsApp() {
+            window.open('https://wa.me/966539447794?text=مرحباً، أريد الاستفسار عن خدمة التوصيل', '_blank');
+        }
+        
+        function makeCall() {
+            window.location.href = 'tel:+966539447794';
+        }
+        
+        // منع النقر الأيمن وفحص العنصر
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('غير مسموح بتعديل المحتوى');
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            // منع F12 وCtrl+Shift+I وCtrl+U
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                alert('غير مسموح بتعديل المحتوى');
+            }
+        });
+    </script>
+</body>
+</html>
