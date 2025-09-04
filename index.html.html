@@ -346,17 +346,9 @@
                 font-size: 16px;
             }
         }
-
-        /* حماية إضافية لمنع التحديد والنقر الأيمن */
-        .protected {
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        }
     </style>
 </head>
-<body class="protected">
+<body>
     <div class="pharmacy-card" id="pharmacyCard">
         <div class="card-header">
             <div class="logo-container">
@@ -404,81 +396,12 @@
         <div class="footer">
             <div>© 2023 صيدلية زاوية النقاء - جميع الحقوق محفوظة</div>
             <div class="contact-info">
-                <span><i class="fas fa-phone"></i> +966539447794</span>
+                <span><i class="fas fa-phone"></i> 53 944 7794</span>
             </div>
         </div>
     </div>
 
     <script>
-        // كود الحماية - إذا تم تعديل أي جزء سيتعطل العرض
-        (function() {
-            'use strict';
-            
-            // قيم التحقق المضمنة في الكود
-            const integrityCheckValues = {
-                css: 'a1b2c3d4e5f6',
-                html: 'x7y8z9w0v1u2',
-                js: 'm3n4o5p6q7r8'
-            };
-            
-            // دالة للتحقق من تكامل الكود
-            function checkIntegrity() {
-                // تحقق من وجود عناصر أساسية في الصفحة
-                const requiredElements = ['pharmacyCard', 'services-section', 'action-buttons'];
-                for (const elem of requiredElements) {
-                    if (!document.getElementById(elem) && !document.getElementsByClassName(elem)[0]) {
-                        return false;
-                    }
-                }
-                
-                // تحقق من وجود الدوال الأساسية
-                const requiredFunctions = ['openLocation', 'openWhatsApp', 'makeCall', 'openDeliveryWhatsApp'];
-                for (const func of requiredFunctions) {
-                    if (typeof window[func] !== 'function') {
-                        return false;
-                    }
-                }
-                
-                // تحقق من وجود أنماط CSS الأساسية
-                const computedStyle = window.getComputedStyle(document.body);
-                if (computedStyle.getPropertyValue('direction') !== 'rtl') {
-                    return false;
-                }
-                
-                return true;
-            }
-            
-            // التحقق من التكامل عند تحميل الصفحة
-            if (!checkIntegrity()) {
-                document.body.innerHTML = '';
-                document.body.style.background = '#1a3a6e';
-                document.body.innerHTML = '<div style="color: white; text-align: center; padding: 50px; font-size: 18px;">عذراً، حدث خطأ في تحميل البطاقة. يبدو أن الملف قد تم التعديل عليه.</div>';
-                throw new Error('Integrity check failed');
-            }
-            
-            // منع إعادة تعريف الدوال
-            const originalFunctions = {};
-            const protectedFunctions = ['openLocation', 'openWhatsApp', 'makeCall', 'openDeliveryWhatsApp'];
-            
-            for (const func of protectedFunctions) {
-                originalFunctions[func] = window[func];
-                Object.defineProperty(window, func, {
-                    value: originalFunctions[func],
-                    writable: false,
-                    configurable: false
-                });
-            }
-            
-            // منع فتح أدوات المطورين
-            setInterval(function() {
-                if (window.outerHeight - window.innerHeight > 200 || 
-                    window.outerWidth - window.innerWidth > 200) {
-                    // تم فتح أدوات المطورين، إخفاء المحتوى
-                    document.body.innerHTML = '<div style="color: white; text-align: center; padding: 50px; font-size: 18px;">تم الكشف عن محاولة تعديل. تم تعطيل البطاقة.</div>';
-                }
-            }, 1000);
-        })();
-        
         // الدوال الأساسية للبطاقة
         function openLocation() {
             window.open('https://maps.app.goo.gl/c67R6kfCw2YaiY4E8', '_blank');
@@ -495,20 +418,6 @@
         function makeCall() {
             window.location.href = 'tel:+966539447794';
         }
-        
-        // منع النقر الأيمن وفحص العنصر
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            alert('غير مسموح بتعديل المحتوى');
-        });
-        
-        document.addEventListener('keydown', function(e) {
-            // منع F12 وCtrl+Shift+I وCtrl+U
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
-                e.preventDefault();
-                alert('غير مسموح بتعديل المحتوى');
-            }
-        });
     </script>
 </body>
 </html>
