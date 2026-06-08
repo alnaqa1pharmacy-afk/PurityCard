@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صيدلية زاوية النقاء</title>
+    <title>صيدلية النقاء</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,7 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a3a6e 0%, #2a549e 100%);
+            background: linear-gradient(135deg, #5b8c4e 0%, #7e9f6e 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,9 +24,9 @@
         }
         
         .pharmacy-card {
-            background: linear-gradient(to bottom, #ffffff 80%, #1a3a6e 100%);
+            background: linear-gradient(to bottom, #ffffff 80%, #5b8c4e 100%);
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(26, 58, 110, 0.15);
+            box-shadow: 0 20px 40px rgba(91, 140, 78, 0.15);
             width: 100%;
             max-width: 420px;
             overflow: hidden;
@@ -34,12 +34,12 @@
         }
         
         .card-header {
-            background: linear-gradient(to right, #1a3a6e, #2a549e);
+            background: linear-gradient(to right, #5b8c4e, #7e9f6e);
             color: white;
-            padding: 30px 25px;
+            padding: 30px 25px 20px;
             text-align: center;
             position: relative;
-            border-bottom: 5px solid #4a7bd9;
+            border-bottom: 5px solid #9bbf8a;
         }
         
         .logo-container {
@@ -62,9 +62,7 @@
         }
         
         .logo {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #4a7bd9 0%, #1a3a6e 100%);
+            background: linear-gradient(135deg, #9bbf8a 0%, #5b8c4e 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -72,6 +70,13 @@
             border: 4px solid white;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
             animation: pulse 2s ease-in-out infinite;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .logo i {
+            font-size: 45px;
+            color: white;
         }
         
         @keyframes pulse {
@@ -86,11 +91,6 @@
             }
         }
         
-        .logo i {
-            font-size: 45px;
-            color: white;
-        }
-        
         .card-header h1 {
             font-size: 28px;
             margin-bottom: 12px;
@@ -103,11 +103,12 @@
             padding: 8px 20px;
             border-radius: 20px;
             font-size: 16px;
-            margin: 10px 0;
+            margin: 10px 0 15px;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
+        /* زر التوصيل - يبقى في مكانه الأصلي */
         .delivery-badge {
             display: flex;
             align-items: center;
@@ -118,12 +119,13 @@
             border-radius: 30px;
             font-size: 18px;
             font-weight: 600;
-            margin: 20px auto 10px;
+            margin: 5px auto 0;
             width: 85%;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 204, 102, 0.3);
             animation: shake 5s ease-in-out infinite;
+            border: none;
         }
         
         @keyframes shake {
@@ -162,12 +164,48 @@
             padding: 30px;
         }
         
+        /* حاوية الأزرار الأخرى (كلها بنفس اللون) */
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        
+        /* نمط موحد لجميع الأزرار (عدا زر التوصيل) */
+        .uniform-btn {
+            background: linear-gradient(135deg, #5b8c4e, #3d6133);
+            border: none;
+            border-radius: 40px;
+            padding: 12px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .uniform-btn i {
+            font-size: 18px;
+        }
+        
+        .uniform-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #4a7a3e, #2f4f26);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
         .services-section {
             margin-bottom: 30px;
         }
         
         .services-section h2 {
-            color: #1a3a6e;
+            color: #5b8c4e;
             margin-bottom: 20px;
             font-size: 22px;
             display: flex;
@@ -178,7 +216,7 @@
         
         .services-section h2 i {
             margin-left: 12px;
-            color: #4a7bd9;
+            color: #7e9f6e;
         }
         
         .services-list {
@@ -223,82 +261,25 @@
         }
         
         .services-list li i {
-            color: #1a3a6e;
+            color: #5b8c4e;
             margin-left: 15px;
             font-size: 18px;
             width: 28px;
             height: 28px;
-            background: #e6eeff;
+            background: #eaf5e6;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .action-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 35px;
-        }
-        
-        .btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            border-radius: 16px;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            color: white;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn i {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-        
-        .btn-website {
-            background: linear-gradient(to right, #4a7bd9, #2a549e);
-        }
-        
-        .btn-website:hover {
-            background: linear-gradient(to right, #3d6dc3, #24468a);
-            box-shadow: 0 8px 20px rgba(42, 84, 158, 0.3);
-        }
-        
-        .btn-whatsapp {
-            background: linear-gradient(to right, #25D366, #20B358);
-        }
-        
-        .btn-whatsapp:hover {
-            background: linear-gradient(to right, #20bd5a, #1a9c4b);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-        }
-        
-        .btn-call {
-            background: linear-gradient(to right, #2a549e, #1a3a6e);
-        }
-        
-        .btn-call:hover {
-            background: linear-gradient(to right, #24468a, #152a57);
-            box-shadow: 0 8px 20px rgba(26, 58, 110, 0.3);
-        }
-        
         .footer {
             text-align: center;
             padding: 20px;
-            color: #a0aec0;
             font-size: 14px;
-            border-top: 1px solid #edf2f7;
-            background-color: #1a3a6e;
-            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid #e0e8d9;
+            background-color: #5b8c4e;
+            color: rgba(255, 255, 255, 0.8);
         }
         
         .contact-info {
@@ -314,36 +295,150 @@
             gap: 5px;
         }
         
+        /* أنماط النوافذ المنبثقة */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(3px);
+        }
+        
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 28px;
+            padding: 24px;
+            text-align: right;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.3s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-content h3 {
+            color: #5b8c4e;
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-right: 4px solid #7e9f6e;
+            padding-right: 12px;
+        }
+        
+        .modal-content select, .modal-content input, .modal-content textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        
+        .modal-content textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        .modal-buttons button {
+            padding: 10px 20px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn-send {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-cancel {
+            background: #ccc;
+            color: #333;
+        }
+        
+        .option-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .option-btn {
+            padding: 12px;
+            background: #eaf5e6;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #3d6133;
+            transition: 0.2s;
+            text-align: center;
+        }
+        
+        .option-btn:hover {
+            background: #d0e5c8;
+        }
+        
+        .loader {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.6s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
         @media (max-width: 480px) {
             .pharmacy-card {
                 max-width: 100%;
                 border-radius: 20px;
             }
-            
             .card-header {
                 padding: 25px 20px;
             }
-            
             .card-header h1 {
                 font-size: 24px;
             }
-            
             .card-body {
                 padding: 25px 20px;
             }
-            
-            .action-buttons {
-                grid-template-columns: 1fr;
+            .buttons-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
-            
-            .btn {
-                padding: 18px;
-                font-size: 16px;
-            }
-            
-            .services-list li {
-                padding: 16px 0;
-                font-size: 16px;
+            .uniform-btn {
+                font-size: 13px;
+                padding: 10px 5px;
             }
         }
     </style>
@@ -353,17 +448,37 @@
         <div class="card-header">
             <div class="logo-container">
                 <div class="logo">
-                    <i class="fas fa-heartbeat"></i>
+                    <i class="fas fa-heartbeat" aria-label="شعار صيدلية النقاء"></i>
                 </div>
             </div>
-            <h1>صيدلية زاوية النقاء</h1>
+            <h1>صيدلية النقاء</h1>
             <div class="specialty">متخصصة في الأدوية النفسية</div>
-            <div class="delivery-badge" onclick="openDeliveryWhatsApp()">
+            <!-- زر التوصيل في مكانه الأصلي (لم يتغير حجمه ولا موضعه) -->
+            <div class="delivery-badge" id="deliveryBadge" aria-label="خدمة التوصيل متاحة، اضغط لاختيار الخيار">
                 <i class="fas fa-truck"></i> خدمة التوصيل متاحة
             </div>
         </div>
         
         <div class="card-body">
+            <!-- جميع الأزرار الأخرى (بنفس اللون) تأتي تحت زر التوصيل -->
+            <div class="buttons-grid">
+                <button class="uniform-btn" onclick="openLocation()" aria-label="الموقع على الخريطة">
+                    <i class="fas fa-map-marker-alt"></i> الموقع
+                </button>
+                <button class="uniform-btn" onclick="openWhatsApp()" aria-label="الدردشة عبر واتساب">
+                    <i class="fab fa-whatsapp"></i> واتساب
+                </button>
+                <button class="uniform-btn" onclick="makeCall()" aria-label="الاتصال بالصيدلية">
+                    <i class="fas fa-phone-alt"></i> اتصل بنا
+                </button>
+                <button class="uniform-btn" onclick="openReview()" aria-label="تقييم الصيدلية على خرائط جوجل">
+                    <i class="fas fa-star"></i> تقييم
+                </button>
+                <button class="uniform-btn" id="drugInquiryBtn" aria-label="الاستفسار عن دواء">
+                    <i class="fas fa-pills"></i> الاستفسار عن دواء
+                </button>
+            </div>
+            
             <div class="services-section">
                 <h2><i class="fas fa-concierge-bell"></i> خدماتنا</h2>
                 <ul class="services-list">
@@ -374,35 +489,47 @@
                     <li><i class="fas fa-user-md"></i> تعاون مع الأطباء المتخصصين</li>
                 </ul>
             </div>
-            
-            <div class="action-buttons">
-                <button class="btn btn-website" onclick="openLocation()">
-                    <i class="fas fa-map-marker-alt"></i>
-                    الموقع
-                </button>
-                
-                <button class="btn btn-whatsapp" onclick="openWhatsApp()">
-                    <i class="fab fa-whatsapp"></i>
-                    واتساب
-                </button>
-                
-                <button class="btn btn-call" onclick="makeCall()">
-                    <i class="fas fa-phone-alt"></i>
-                    اتصل بنا
-                </button>
-            </div>
         </div>
         
         <div class="footer">
-            <div>© 2023 صيدلية زاوية النقاء - جميع الحقوق محفوظة</div>
+            <div>© 2023 صيدلية النقاء - جميع الحقوق محفوظة</div>
             <div class="contact-info">
                 <span><i class="fas fa-phone"></i> 53 944 7794</span>
             </div>
         </div>
     </div>
 
+    <!-- نافذة منبثقة عامة -->
+    <div id="modalOverlay" class="modal-overlay" aria-label="نافذة تفاعلية" role="dialog">
+        <div class="modal-content" id="modalContent">
+            <!-- المحتوى ديناميكي -->
+        </div>
+    </div>
+
     <script>
-        // الدوال الأساسية للبطاقة
+        // تخزين التفضيلات في localStorage
+        const STORAGE_KEY = 'pharmacy_preferences';
+        
+        function saveLastDrugInquiry(type, data) {
+            const pref = {
+                type: type,
+                drugName: data.drugName || '',
+                notes: data.notes || ''
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(pref));
+        }
+        
+        function loadLastDrugInquiry() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                try {
+                    return JSON.parse(saved);
+                } catch(e) { return null; }
+            }
+            return null;
+        }
+        
+        // الدوال الأساسية
         function openLocation() {
             window.open('https://maps.app.goo.gl/c67R6kfCw2YaiY4E8', '_blank');
         }
@@ -411,13 +538,214 @@
             window.open('https://wa.me/966539447794', '_blank');
         }
         
-        function openDeliveryWhatsApp() {
-            window.open('https://wa.me/966539447794?text=مرحباً، أريد الاستفسار عن خدمة التوصيل', '_blank');
-        }
-        
         function makeCall() {
             window.location.href = 'tel:+966539447794';
         }
+        
+        function openReview() {
+            window.open('https://search.google.com/local/writereview?placeid=ChIJ_diX7Q0ELz4RqAVcLWOZKFs', '_blank');
+        }
+        
+        const modal = document.getElementById('modalOverlay');
+        const modalContent = document.getElementById('modalContent');
+        
+        function closeModal() {
+            modal.style.display = 'none';
+            const sendingBtn = document.querySelector('.btn-send[disabled]');
+            if (sendingBtn) {
+                sendingBtn.disabled = false;
+                sendingBtn.innerHTML = 'إرسال الاستفسار';
+            }
+        }
+        
+        function setLoading(buttonElement, isLoading) {
+            if (isLoading) {
+                buttonElement.disabled = true;
+                buttonElement.innerHTML = '<span class="loader"></span> جاري الإرسال...';
+            } else {
+                buttonElement.disabled = false;
+                buttonElement.innerHTML = 'إرسال الاستفسار';
+            }
+        }
+        
+        // رسالة منسقة (Markdown خفيف)
+        function formatWhatsAppMessage(title, details) {
+            let msg = `*📋 ${title}*\n\n`;
+            for (const [key, value] of Object.entries(details)) {
+                msg += `▪️ *${key}:* ${value}\n`;
+            }
+            msg += `\n🕒 ${new Date().toLocaleString('ar-SA')}`;
+            return msg;
+        }
+        
+        // زر التوصيل: خيارات داخل الرياض، خارج الرياض، خارج المملكة
+        document.getElementById('deliveryBadge').onclick = () => {
+            modalContent.innerHTML = `
+                <h3><i class="fas fa-truck"></i> خيارات التوصيل</h3>
+                <div class="option-buttons">
+                    <button class="option-btn" onclick="selectDelivery('inside')" aria-label="توصيل داخل الرياض">🚚 توصيل داخل الرياض</button>
+                    <button class="option-btn" onclick="selectDelivery('outside_riyadh')" aria-label="توصيل خارج الرياض">🚛 توصيل خارج الرياض (داخل المملكة)</button>
+                    <button class="option-btn" onclick="selectDelivery('international')" aria-label="توصيل خارج المملكة">✈️ توصيل خارج المملكة</button>
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="closeModal()" aria-label="إغلاق">إلغاء</button>
+                </div>
+            `;
+            modal.style.display = 'flex';
+        };
+        
+        window.selectDelivery = (type) => {
+            let message = '';
+            if (type === 'inside') {
+                message = 'مرحباً، أرغب في توصيل طلب داخل الرياض.';
+            } else if (type === 'outside_riyadh') {
+                message = 'مرحباً، أرغب في توصيل طلب خارج الرياض (داخل المملكة).';
+            } else if (type === 'international') {
+                message = 'مرحباً، أرغب في الاستفسار عن توصيل طلب خارج المملكة العربية السعودية.';
+            }
+            closeModal();
+            window.open(`https://wa.me/966539447794?text=${encodeURIComponent(message)}`, '_blank');
+        };
+        
+        // زر الاستفسار عن دواء (مع حفظ التفضيلات ورسائل منسقة)
+        document.getElementById('drugInquiryBtn').onclick = () => {
+            modalContent.innerHTML = `
+                <h3><i class="fas fa-question-circle"></i> نوع الدواء</h3>
+                <div class="option-buttons">
+                    <button class="option-btn" onclick="showRestrictedForm()" aria-label="استفسار عن دواء مقيد">دواء مقيد (يتطلب وصفة)</button>
+                    <button class="option-btn" onclick="showUnrestrictedForm()" aria-label="استفسار عن دواء غير مقيد">دواء غير مقيد</button>
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="closeModal()" aria-label="إغلاق">إلغاء</button>
+                </div>
+            `;
+            modal.style.display = 'flex';
+        };
+        
+        window.showUnrestrictedForm = () => {
+            const savedPref = loadLastDrugInquiry();
+            let savedDrug = '', savedNotes = '';
+            if (savedPref && savedPref.type === 'unrestricted') {
+                savedDrug = savedPref.drugName || '';
+                savedNotes = savedPref.notes || '';
+            }
+            modalContent.innerHTML = `
+                <h3><i class="fas fa-capsules"></i> استفسار عن دواء غير مقيد</h3>
+                <label>اسم الدواء</label>
+                <input type="text" id="drugName" placeholder="أدخل اسم الدواء" value="${escapeHtml(savedDrug)}" aria-label="اسم الدواء" />
+                <label>ملاحظات إضافية</label>
+                <textarea id="notes" placeholder="أي تفاصيل إضافية..." aria-label="ملاحظات">${escapeHtml(savedNotes)}</textarea>
+                <div class="modal-buttons">
+                    <button class="btn-send" id="sendUnrestrictedBtn" aria-label="إرسال الاستفسار">إرسال الاستفسار</button>
+                    <button class="btn-cancel" onclick="closeModal()" aria-label="إلغاء">إلغاء</button>
+                </div>
+            `;
+            const sendBtn = document.getElementById('sendUnrestrictedBtn');
+            sendBtn.onclick = () => {
+                if (sendBtn.disabled) return;
+                setLoading(sendBtn, true);
+                const drugName = document.getElementById('drugName')?.value.trim() || 'غير مذكور';
+                const notes = document.getElementById('notes')?.value.trim() || 'لا توجد ملاحظات';
+                saveLastDrugInquiry('unrestricted', { drugName, notes });
+                const details = {
+                    'نوع الاستفسار': 'دواء غير مقيد',
+                    'اسم الدواء': drugName,
+                    'الملاحظات': notes
+                };
+                const message = formatWhatsAppMessage('استفسار دواء غير مقيد', details);
+                closeModal();
+                window.open(`https://wa.me/966539447794?text=${encodeURIComponent(message)}`, '_blank');
+                setLoading(sendBtn, false);
+            };
+        };
+        
+        window.showRestrictedForm = () => {
+            const drugsList = [
+                'Pregabalin', 'Alprazolam', 'Clonazepam', 'Methylphenidate',
+                'Lisdexamfetamine', 'Bromazepam', 'Diazepam', 'Zolpidem',
+                'Eszopiclone', 'Gabapentin', 'Procyclidine', 'Other'
+            ];
+            let optionsHtml = drugsList.map(d => `<option value="${d}">${d}</option>`).join('');
+            const savedPref = loadLastDrugInquiry();
+            let savedDrug = '', savedNotes = '';
+            if (savedPref && savedPref.type === 'restricted') {
+                savedDrug = savedPref.drugName || '';
+                savedNotes = savedPref.notes || '';
+            }
+            modalContent.innerHTML = `
+                <h3><i class="fas fa-prescription-bottle"></i> استفسار عن دواء مقيد</h3>
+                <label>اختر الدواء</label>
+                <select id="restrictedDrugSelect" aria-label="قائمة الأدوية المقيدة">
+                    ${optionsHtml}
+                </select>
+                <div id="otherDrugContainer" style="display:none; margin-top:10px;">
+                    <label>يرجى كتابة اسم الدواء</label>
+                    <input type="text" id="otherDrugName" placeholder="أدخل اسم الدواء" aria-label="اسم دواء آخر" value="${savedDrug !== 'Other' && !drugsList.includes(savedDrug) ? escapeHtml(savedDrug) : ''}" />
+                </div>
+                <label>ملاحظات إضافية</label>
+                <textarea id="restrictedNotes" placeholder="أي تفاصيل إضافية..." aria-label="ملاحظات">${escapeHtml(savedNotes)}</textarea>
+                <div class="modal-buttons">
+                    <button class="btn-send" id="sendRestrictedBtn" aria-label="إرسال الاستفسار">إرسال الاستفسار</button>
+                    <button class="btn-cancel" onclick="closeModal()" aria-label="إلغاء">إلغاء</button>
+                </div>
+            `;
+            const selectEl = document.getElementById('restrictedDrugSelect');
+            const otherContainer = document.getElementById('otherDrugContainer');
+            const otherInput = document.getElementById('otherDrugName');
+            
+            if (savedPref && savedPref.type === 'restricted' && savedPref.drugName) {
+                const drugVal = savedPref.drugName;
+                if (drugsList.includes(drugVal)) {
+                    selectEl.value = drugVal;
+                    if (drugVal === 'Other') otherContainer.style.display = 'block';
+                } else {
+                    selectEl.value = 'Other';
+                    otherContainer.style.display = 'block';
+                    if (otherInput) otherInput.value = drugVal;
+                }
+            }
+            
+            selectEl.addEventListener('change', function() {
+                otherContainer.style.display = this.value === 'Other' ? 'block' : 'none';
+            });
+            
+            const sendBtn = document.getElementById('sendRestrictedBtn');
+            sendBtn.onclick = () => {
+                if (sendBtn.disabled) return;
+                setLoading(sendBtn, true);
+                let selectedDrug = selectEl.value;
+                let finalDrug = selectedDrug;
+                if (selectedDrug === 'Other') {
+                    const otherValue = otherInput?.value.trim();
+                    finalDrug = otherValue ? otherValue : 'دواء آخر (غير محدد)';
+                }
+                const notes = document.getElementById('restrictedNotes')?.value.trim() || 'لا توجد ملاحظات';
+                saveLastDrugInquiry('restricted', { drugName: finalDrug, notes });
+                const details = {
+                    'نوع الاستفسار': 'دواء مقيد',
+                    'اسم الدواء': finalDrug,
+                    'الملاحظات': notes
+                };
+                const message = formatWhatsAppMessage('استفسار دواء مقيد', details);
+                closeModal();
+                window.open(`https://wa.me/966539447794?text=${encodeURIComponent(message)}`, '_blank');
+                setLoading(sendBtn, false);
+            };
+        };
+        
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
     </script>
 </body>
 </html>
